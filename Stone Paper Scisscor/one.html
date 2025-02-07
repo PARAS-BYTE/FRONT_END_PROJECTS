@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        position: relative;
+    }
+
+    main {
+
+
+        position: absolute;
+
+    }
+
+    .onemore {
+
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column-reverse;
+        transition: 1s cubic-bezier(0.23, 1, 0.320, 1);
+
+        /* display: none; */
+    }
+
+    .onemore h2 {
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .info {
+        height: 200px;
+        width: 100vw;
+        background-color: #111;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .pict {
+        background-color: white;
+        min-height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #circles {
+        cursor: pointer;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: yellow;
+        font-size: 3rem;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        animation: circle 8s ease-in-out 400ms 1 ;
+        animation-delay: 11400ms;
+    }
+
+    #circles:hover {
+        border: 2px solid grey;
+        background-color: rgb(255, 209, 4);
+
+    }
+
+    @keyframes circle {
+        0% {
+            opacity: 0;
+            transform: translateY(200px);
+
+
+        }
+
+        50% {
+            transform: translateY(-90px);
+        }
+
+        65% {
+            transform: translateY(150px);
+        }
+
+        80% {
+            transform: translateY(-70px);
+        }
+
+        90% {
+            transform: translateY(80px);
+        }
+
+        93% {
+            transform: translateY(-20px);
+        }
+
+        96% {
+            transform: translateY(40px);
+        }
+
+        98% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0px);
+
+        }
+    }
+
+    .onemore p {
+        font-size: 2rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: grey;
+    }
+
+    button {
+        height: 40px;
+        width: 100px;
+        display: flex;
+
+        border: none;
+        border-radius: 3px;
+        font-size: 1.3rem;
+        color: brown;
+        align-items: center;
+        justify-content: center;
+    }
+    .cong1{
+        position: relative;
+        height: 200px;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        display: none;
+        
+    }
+    
+</style>
+
+<body>
+    <main>
+        <div class="info">
+            <h1>Stone Paper Scisorr</h1>
+            <h3>Choose One Out of these</h3>
+            <Span>Your Status   </Span><div class="nws"></div>
+            <span>Computer's Status  </span><div class="comp"></div>
+        </div>
+        <div class="pict">
+            <div id="circles">Stone</div>
+            <div id="circles">Paper</div>
+            <div id="circles">Scissor</div>
+
+        </div>
+        <audio src="sound-1-167181.mp3"></audio>
+        <audio src="win.mp3"></audio>
+        <audio src="lose.mp3"></audio>
+        <audio src="start.mp3" ></audio>
+        <audio src="same.mp3"></audio>
+        <button>Reset</button>
+    </main>
+    <div class="onemore">
+        <h2>loading.....</h2>
+        <p></p>
+    </div>
+    <div class="cong1">
+        <!-- <img src="cong1.gif" alt=""> -->
+        <img src="cong2.gif" alt="">
+        <img src="cong2.gif" alt="">
+    </div>
+</body>
+<script>
+    let tick = document.getElementsByTagName("audio")[0];
+    let win= document.getElementsByTagName("audio")[1];
+    let lose= document.getElementsByTagName("audio")[2];
+    let start= document.getElementsByTagName("audio")[3];
+    let same= document.getElementsByTagName("audio")[4];
+    window.addEventListener("load",function (){
+        setTimeout(() => {
+            
+        }, 11400);
+    })
+    let cong =document.getElementsByClassName("cong1")[0];
+    
+    let arr = ["Representing", "the", "Game", "Stone", "Paper", "Scissor", "Designed", " By", " Jacob"]
+    let len = arr.length;
+    let time = len * 600;
+    let h2 = document.getElementsByTagName("h2")[0];
+    let div = document.getElementsByClassName("onemore")[0];
+    let p = document.getElementsByTagName("p")[0];
+    window.addEventListener("load", function () {
+        let i = 0;
+        function jacob() {
+            let h2content = h2.textContent;
+            h2content += ".";
+            h2.textContent = h2content
+        }
+        let out = setInterval(() => {
+            i = i % len
+            let pcontent = p.textContent;
+            p.textContent += arr[i++] + " "
+        }, 600)
+        setTimeout(() => {
+            clearInterval(out);
+        }, time + 400);
+        let int = setInterval(jacob, 400);
+        setTimeout(() => {
+            clearInterval(int)
+        }, time + 6000);
+
+        setInterval(() => {
+            h2.textContent = "loading"
+        }, 1400)
+        setTimeout(() => {
+            div.style.display = "none"
+            start.play();
+        }, time + 6000);
+
+        div.style.backgroundColor = "#111"
+
+    })
+    // start.play()
+    let human;
+    let circle = document.querySelectorAll("#circles");
+
+
+    
+    
+
+    for (let i = 0; i < circle.length; i++) {
+        circle[i].addEventListener("click", function () {
+            
+            tick.play();
+            news.textContent = "You Chooses the " + " " + circle[i].textContent;
+            circle[i].style.backgroundColor ="grey"
+            circle[i].style.color ="white"
+            wincheck(i);
+            
+        });
+    }
+
+    
+
+    let news = document.getElementsByClassName("nws")[0];
+    let comp = document.getElementsByClassName("comp")[0];
+
+    
+    function wincheck(k) {
+        stop()
+        let gen = Math.random();
+        let computer = Math.floor((gen * 10) / 3)
+        // comp.textContent = "Computer Chooses " + circle[computer].textContent;
+        comp.innerHTML = " <br> Wait Computer Choosing its Content"
+        setTimeout(() => {
+            l=k;
+            // circle[computer].style.backgroundColor ="pink"
+            
+            // console.log(`user choess ${k}`)
+            // console.log("our computer chooses" + computer)
+            if (computer == k) {
+                // wincheck(k)
+                // console.log("Both are same")
+                comp.innerHTML = `Computer chooses${circle[computer].textContent} ` + "<Br>Both are same"
+                    same.play()
+            } else if (((k === 0) && (computer === 2)) || ((k === 1) && (computer === 0)) || ((k === 2) && (computer === 1))) {
+                // console.log(k, computer)
+                // console.log("You win")
+                cong.style.display ="flex"
+                comp.innerHTML = `Computer chooses${circle[computer].textContent} ` + "<Br>You Win's This time"
+                    win.play()
+
+            } else {
+                comp.innerHTML = `Computer chooses${circle[computer].textContent} ` + "<br>Computer Wins Better luck next time"
+                // console.log("computer wins")
+                lose.play()
+            }
+            // circle[computer].style.backgroundColor ="black"
+            // circle[computer].style.color= "white"
+            out(computer)
+        }, 4000);
+        function out(i){
+            setTimeout(()=>{
+                circle[i].style.color ="white"
+                circle[i].style.backgroundColor ="black"
+            },100)
+        }
+        
+        let ones = setInterval(() => {
+            for(let i=0;i<circle.length;i++){
+                if(i==k){
+                    continue;
+                }else{
+                let random1 = (Math.random()) * 400
+                let random2 = (Math.random()) * 300
+                let random3 = (Math.random()) * 200
+                // rgb(216, 219, 12)
+                circle[i].style.backgroundColor = `rgb(${random2},${random2}, ${random1})`
+                }
+            }
+        }, 100);
+        setTimeout(() => {
+            clearInterval(ones)
+        }, 4000);
+        //  let twos =setInterval(()=>{
+        //     circle.forEach(element=>{
+        //         element.style.backgroundColor ="orange"
+        //     },900)
+        // })
+
+
+    }
+    function stop(){
+        circle.forEach(ele=>{
+            ele.style.pointerEvents ="none"
+        })
+    }
+    
+    let button = document.getElementsByTagName("button")[0];
+    button.addEventListener("click", function () {
+        tick.play();
+        cong.style.display ="none"
+        circle.forEach(element => {
+            element.style.backgroundColor = "yellow"
+            element.style.color="black"
+            element.style.pointerEvents ="auto"
+        });
+        news.textContent = ""
+        comp.textContent = ""
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Defender Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .game-container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>APK Defender</h1>
+        <p id="message">Do you want to install this APK?</p>
+        <button onclick="installAPK(true)">Install</button>
+        <button onclick="installAPK(false)">Reject</button>
+        <p id="status"></p>
+    </div>
+    <script>
+        const harmfulAPKs = ['Malware APK', 'Spyware APK', 'Adware APK'];
+        const safeAPKs = ['Game APK', 'Utility APK', 'Productivity APK'];
+
+        function getRandomAPK() {
+            const allAPKs = harmfulAPKs.concat(safeAPKs);
+            const randomIndex = Math.floor(Math.random() * allAPKs.length);
+            return allAPKs[randomIndex];
+        }
+
+        function installAPK(decision) {
+            const apk = getRandomAPK();
+            const statusElement = document.getElementById('status');
+
+            if (decision) {
+                if (harmfulAPKs.includes(apk)) {
+                    statusElement.textContent = `You installed ${apk} and it harmed your device!`;
+                    statusElement.style.color = 'red';
+                } else {
+                    statusElement.textContent = `You installed ${apk} and it is safe!`;
+                    statusElement.style.color = 'green';
+                }
+            } else {
+                statusElement.textContent = `You rejected ${apk}.`;
+                statusElement.style.color = 'blue';
+            }
+        }
+    </script>
+</body>
+</html>

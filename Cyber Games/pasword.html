@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="password.css">
+
+<body>
+    <div id="instruction">
+        <button>X</button>
+        <div>
+        <p><em>Diving into the world of cyber games is like unlocking a treasure chest filled with endless possibilities.</em> Here's a roadmap to guide you on this thrilling adventure:</p>
+<ul>
+    <li><strong>Choose Your Game:</strong>
+        <ul>
+            <li>Research different genres and read reviews.</li>
+            <li>Select a game that matches your interests and skill level.</li>
+        </ul>
+    </li>
+    <li><strong>Set Up Your Gear:</strong>
+        <ul>
+            <li>Ensure your device meets the game's system requirements.</li>
+            <li>Install necessary updates and drivers.</li>
+            <li>Invest in good peripherals (keyboard, mouse, headset).</li>
+        </ul>
+    </li>
+    <li><strong>Learn the Basics:</strong>
+        <ul>
+            <li>Start with the tutorial to understand game mechanics.</li>
+            <li>Familiarize yourself with the controls and settings.</li>
+        </ul>
+    </li>
+    <li><strong>Practice Regularly:</strong>
+        <ul>
+            <li>Dedicate time each day to improve your skills.</li>
+            <li>Play against AI to build confidence.</li>
+        </ul>
+    </li>
+    <li><strong>Join the Community:</strong>
+        <ul>
+            <li>Participate in online forums and social media groups.</li>
+            <li>Watch live streams and tutorials from experienced players.</li>
+        </ul>
+    </li>
+    <li><strong>Play with Friends:</strong>
+        <ul>
+            <li>Create or join a team for a more engaging experience.</li>
+            <li>Communicate effectively using in-game chat or voice tools.</li>
+        </ul>
+    </li>
+    <li><strong>Analyze Your Gameplay:</strong>
+        <ul>
+            <li>Review your matches to identify strengths and weaknesses.</li>
+            <li>Learn from your mistakes and adapt your strategy.</li>
+        </ul>
+    </li>
+    <li><strong>Stay Updated:</strong>
+        <ul>
+            <li>Keep an eye on game updates and patches.</li>
+            <li>Follow developers for news on upcoming events and features.</li>
+        </ul>
+    </li>
+</ul>
+<p>By following these steps, you'll be well on your way to becoming a cyber gaming maestro! <em>Dive in, explore new worlds, and let the games begin!</em></p>
+</div>
+    </div>
+    <main>
+        <nav>
+            <div class="one">
+            <a href="">Home</a>
+            <a href="#games">Games</a>
+            <a  id="re">Instuctions</a>
+        </div>
+        <div class="img">
+            <img src="Orange and Blue Modern Cyber Security Logo.png" alt="">
+        </div>
+        </nav>
+        <div class="fil">
+            <div>
+            <p>Try As Much Hard Password You Can Try</p>
+            <input type="text">
+            <button>Submit</button>
+        </div>
+        </div>
+        
+    </main>
+    <div class="score">
+        <p>
+        <span class="tag">Click Here to Start New Game</span>
+        <button>New Game</button>
+    </p>
+    </div>
+</body><script>
+    let body=document.getElementsByTagName("body")[0];
+    let instr= document.getElementById("instruction")
+    let score= document.getElementsByClassName("score")[0];
+    let but= document.querySelector(".score button")
+    let button = document.getElementsByTagName("button")[0].addEventListener("click",()=>{
+            instr.style.display="none"
+            
+    })
+    document.getElementById("re").addEventListener("click",()=>{
+        instr.style.display="";
+        
+    })
+
+    function checkPasswordStrength(password) {
+        let score = 0;
+
+        // if(password.trim()=''){
+        //     alert("you entered Nothing")
+        // }
+    // Length check
+    if (password.length >= 8) {
+        score += 2;
+    } else if (password.length >= 4) {
+        score += 1;
+    }
+
+    // Uppercase letters check
+    if (/[A-Z]/.test(password)) {
+        score += 2;
+    }
+
+    // Lowercase letters check
+    if (/[a-z]/.test(password)) {
+        score += 2;
+    }
+    
+    // Numbers check
+    if (/\d/.test(password)) {
+        score += 2;
+    }
+
+    // Special characters check
+    if (/[\W_]/.test(password)) {
+        score += 2;
+    }
+
+    return score;
+    
+}
+
+
+but.addEventListener("click",()=>{
+    score.style.display="none"
+})
+
+let button1= document.getElementsByTagName("button")[1];
+    button1.addEventListener("click",()=>{
+        
+        let input= document.getElementsByTagName("input")[0];
+        let string= input.value;
+        setTimeout(()=>{
+
+            let scorea= checkPasswordStrength(string);
+         //    console.log("hi",scorea)
+         let s=   document.getElementsByClassName("tag")[0]
+         s.textContent=`You Scored ${scorea-1} Out 10`;  
+         input.value='';
+         score.style.display=""
+        },1000)
+    
+    })  
+</script>
+</html>

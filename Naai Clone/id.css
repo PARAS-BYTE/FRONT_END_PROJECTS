@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: Monotype Corsiva; */
+    
+
+}
+
+.father {
+    max-width: 100vw;
+    height: 450vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.father1{
+    
+    background-color: black;
+    max-width: 100vw;
+    height: 400vh;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.page1, .page2 {
+    width: 100%;
+    height: 25%;
+}
+/* 
+@media   (max-width : 375px) {
+body{
+background-color: orange;
+}   
+} */
+
+.child1 {
+    background-color: white;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+}
+.fuck{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+}
+@media (max-width :375px){
+    .child1{
+        height: 15%;
+        background-color: pink;
+        font-size: 0.6em;
+        font-weight: none;
+    }
+}
+.nchild1 {
+    background-color: white;
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.child11 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+}
+
+.child12 {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.child1 img {
+    width: 60%;
+    height: 90%;
+    padding-left: 10%;
+    object-fit: contain;
+}
+@media (max-width : 375px){
+    .child1 img{
+        width:40% ;
+        height: 60%;
+    }
+}
+
+.img1 {
+    width: 20%;
+    height: 100%;
+}
+
+.child11 h3 {
+    position: relative;
+    transition: 1.5s;
+    cursor: pointer;
+}
+
+.child11 h3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.188rem; /* 3px */
+    bottom: -0.625rem; /* -10px */
+    left: 0;
+    background-color: mediumseagreen;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+.child12 img{
+    height: 40%;
+    display: none;
+}
+
+.child11 h3:hover::after {
+    opacity: 1;
+    bottom: 0;
+    transform: scaleX(1);
+}
+
+.child12 h3 {
+    position: relative;
+    transition: 0.3s;
+    padding-bottom: 0.188rem; /* 3px */
+    cursor: pointer;
+}
+
+.child12 h3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    height: 0.188rem; /* 3px */
+    bottom: -0.625rem; /* -10px */
+    left: 0;
+    background-color: mediumseagreen;
+    transition: 0.5s ease-in-out;
+}
+
+.child12 h3:hover::after {
+    bottom: 0;
+    width: 100%;
+    opacity: 1;
+}
+
+.child2 {
+    font-weight: none;
+    height: 78%;
+    width: 100%;
+    font-family:'Times New Roman', Times, serif;
+    background: url(pexels-delbeautybox-211032-705255.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: white;
+}
+@media (max-width : 375px){
+    .child2{
+        height: 84%;
+        margin-bottom: 12%;
+    }
+}
+
+.ones {
+    height: 6%;
+    /* font-size: 1rem; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    color: white;
+    background-color: #a0153a;
+    border: none;
+    border-radius: 0.25rem; /* 4px */
+    cursor: pointer;
+}
+
+.content {
+    width: 40%;
+    padding-left: 10%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content button {
+    margin-top: 32%;
+    height: 10%;
+    width: 50%;
+    border-radius: 0.5rem; /* 8px */
+}
+
+.content .now {
+    padding-top: 10%;
+    height: 40%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+
+.page2 {
+    height: 25%;
+    width: 100%;
+}
+
+.child3 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 20%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    align-items: center;
+    color: #a0153a;
+}
+
+.child4 {
+    height: 78%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    gap: 4%;
+}
+
+.child4>div {
+    height: 88%;
+    width: 25%;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px -1px 8px 3px grey;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 2%
+}
+
+.box11 div{
+    height: 80%;
+    margin: 4%;
+    cursor: pointer;
+    width: 90%;
+    background: url(https://images.pexels.com/photos/4625616/pexels-photo-4625616.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+    background-position: -60px;
+    position: relative;
+    border-radius: 2%;
+}
+.box12 div{
+    height: 80%;
+    margin: 4%;
+    cursor: pointer;
+    width: 90%;
+    background: url(https://images.pexels.com/photos/1654834/pexels-photo-1654834.jpeg?auto=compress&cs=tinysrgb&w=600g);
+    background-size: cover;
+    background-position: -100px;
+    position: relative;
+    border-radius: 2%;
+}
+.box13 div{
+    border-radius: 2%;
+    height: 80%;
+    margin: 4%;
+    cursor: pointer;
+    width: 90%;
+    background: url(https://images.pexels.com/photos/2040189/pexels-photo-2040189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    background-position: -60px;
+    position: relative;
+   
+}
+
+.box11:hover, .box12:hover, .box13:hover {
+    transform: scale(1.06);
+}
+
+.box11 div::before {
+    content: "Choose Your Stylist\nBook Now";
+    position: absolute;
+    line-height: 1.5;
+    font-family: Lucida Handwriting;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.box11 div::after, .box12 div::after, .box13 div::after {
+    content: "";
+    position: absolute;
+    border-radius: 2%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.box11 div:hover::before,
+.box11 div:hover::after {
+    opacity: 1;
+}
+
+.box12 div::before {
+    content: "NO MORE WAITING";
+    position: absolute;
+    line-height: 1.5;
+    font-family: Lucida Handwriting;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.box12 div:hover::before,
+.box12 div:hover::after {
+    opacity: 1;
+}
+
+.box13 div::before {
+    content: "Explore New Salon And Stylist";
+    position: absolute;
+    font-family: Lucida Handwriting;
+    line-height: 1.5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.box13 div:hover::before,
+.box13 div:hover::after {
+    opacity: 1;
+}
+.page3{
+    font-family: Ink Free;
+    height: 25%;
+    width: 100%;
+    /* border: 1px solid black; */
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    color: #a0153a;
+}
+.pasw{
+    font-family: Ink Free;
+    height: 25%;
+    width: 100%;
+    /* border: 1px solid black; */
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    background-color: black;
+    color: white;
+}
+.page3 input{
+    height: 8%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding-left: 10px;
+    width: 60%;
+
+}
+.pasw input{
+    height: 8%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding-left: 10px;
+    width: 60%;
+
+}
+.cild5{
+    height: 60%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    margin-left: 26%;
+}
+.cild5 input:hover{
+    border: 1px solid black;
+}
+.cild5 button{
+    height: 10%;
+    width: 61%;
+    margin-top: 4%;
+    border-radius: 6px ;
+    background-color: #a0153a;
+    color: white;
+    font-size: 1.06em;
+    border: none;
+}
+.cild5 .fed{
+    height: 16%;
+    width: 60%;
+    display: flex;
+    justify-content: end;
+}
+.page4{
+    height: 25%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.child6{
+    margin-top: 5% ;
+    height: 27%;
+    width: 100%;
+    /* border: 1px solid blac4; */
+    color: #a0153a;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    gap: 30%;
+    
+}
+.xcs{
+    font-size: 1.6em;
+    font-weight: bold;
+    
+}
+.child6 hh4{
+    font-size: 1.1em;
+    
+}
+.sd{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+}
+   
+.sd input {
+    height: 50%;
+    border-radius: 6px;
+    border: 1px solid grey;
+
+    width: 68%;
+}
+.sd button{
+    height: 55%;
+    width: 15%;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    color: #a0153a;
+}
+.dfd{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30%;
+}
+.sd input:hover{
+    border: 1px solid black;
+}
+.child7{
+
+    margin-top: 5%;
+    height: 53%;
+    width: 100%;
+    /* border: 1px solid black; */
+    
+}
+.child7 >div{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      width: 100%;
+    /* border: 1px solid black; */
+    color: #a0153a;
+    gap:25%;
+}
+.div1{
+    font-size: 2em;
+    margin-left: -4%;
+    /* font-weight: bold; */
+}
+.div2{
+    font: 1.4em;
+    margin-left: -4.7%;
+}
+
+
+
+.child8{
+    /* border: 1px solid red; */
+    height: 30%;
+    width: 100%;
+    /* background-color: orange; */
+}
+.carousel {
+    /* margin: 10%; */
+    /* margin-left: 20%; */
+    width: 60%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-track {
+    display: flex;
+    gap: 10%;
+    transition: transform 1s ease;
+}
+.logo {
+    width: 25%;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.carousel-track img{
+    width: 20%;
+    height: 49%;
+    margin: auto;
+    object-fit: cover;
+}
+.child9{
+    background-color: #a0153a;
+   margin-bottom: 10%;
+    color: white;
+    margin-top: 4%;
+    width: 100%;
+    /* display: flex; */
+    display: none;
+    /* flex-direction: row; */
+    /* align-items: center; */
+}
+.child9 img{
+    height: 100%;
+    width: 10%;
+}
+ .child9.soss{
+    cursor: pointer;
+    font-size: 1.1em;
+}
+@media (max-width :600px) {
+    .father{
+        height: 500vh;
+        padding: 2%;
+        overflow: hidden;
+    }
+    .oo{
+        display: none;
+    }
+    .child1{
+        height: 10%;
+        font-size: 0.5rem;
+        font-weight: 600;
+        
+    }
+    .nchild1{
+        height: 0%;
+        background-color: brown;
+    }
+    .child12 img{
+        display: block;
+        margin-left: 60%;    
+    }
+    #sss{
+        display: none;
+    }
+    .child2 {
+        height: 90%;
+        font-size: 0.8rem;
+        font-weight: 600;
+        
+    }
+    .content{
+        width: 60%;
+    }
+    .ones {
+        /* width:0%; */
+        font-size: 0.7rem;
+        
+    }
+    .page2{
+        height: 50%;
+    }
+    .child3{
+        height: 10%;
+    }
+   .child4{
+    flex-direction: column;
+    height: 90%;
+   }
+    .child4>div{
+        height: 200%;
+        width: 60%;
+        margin-left: 20%;
+    }
+    .sd button{
+        height: 60%;
+        width: 30%;
+    }
+    .child9>div{
+        color: black;
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom,skyblue,lightblue,white);
+    }
+    .main{
+    font-family: Harrington;
+    font-size: 20px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+    .main >img{
+        
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+    }
+    .lod> button{
+        width: 40px;
+        padding: 4px;
+        margin: 4px;
+
+    }
+    
+   #mylove{
+    /* position: relative; */
+        position: absolute;
+        /* top: 0px; */
+    }
+</style>
+<body>
+    
+   <div class="main">
+    <img src="heart-117_256.gif" alt="" >
+    <div class="que">Do you love me</div>
+    <br>
+    <div class="lod"><button type="submit" id="yes" >YES</button>
+        <button type="submit" id="mylove" >NO</button></div>
+   </div>
+</body>
+<script>
+    let s;
+    let j= 0;
+    let helo=()=>{
+      s = prompt("What is your name?")   
+    }
+    window.addEventListener("load",helo())
+    let div=  document.getElementsByClassName("main")[0];
+    let one = document.getElementById("mylove");
+    let main = div.getBoundingClientRect();
+    let width= main.width;
+    let height = main.height;
+    console.log(height);
+    let my =[width/1.3,width/50,width/20,width/4,width/1.6,width/1.4];
+    let me =[height/1.1,height/2,height/1.4,height/1.8,height/4,height/5];
+    let i=0;
+    one.addEventListener("mousemove",function (){
+        img.src = "teddy-bear-10283_256.gif";
+        one.style.top = `${me[i]}px`;
+        one.style.left = `${my[i]}px`;
+        console.log(my[i],me[i]);
+        que.innerHTML=`Why @ ${s}?`
+        i++;
+        j++;
+        i=i%(my.length-1);
+        
+    })
+    let que =document.getElementsByClassName("que")[0];
+    let img=  document.getElementsByTagName("img")[0];
+    let yes=  document.getElementById("yes");
+    yes.addEventListener("click",function (){
+        if(j<3){
+            img.src = "cat-133_256.gif";
+            one.style.display ="none"; 
+            
+            
+            // que.innerHTML = "I also love you"+s;
+            que.innerHTML =`I also love you @ ${s}`;
+        }
+        else{
+        img.src = "cry-1327_256.gif";
+            one.style.display ="none"; 
+            
+            
+            // que.innerHTML = "I also love you"+s;
+            que.innerHTML =`no You Don't love me @${s} <br>teri maa ki chut lnd le bhosdike `;
+
+        }
+    })
+</script>
+
+</html>

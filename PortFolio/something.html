@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Follow Image</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    .image {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <img src="https://via.placeholder.com/100" alt="Follow Image" class="image">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+  <script>
+    const image = document.querySelector('.image');
+let mouseX = 0, mouseY = 0;
+let isMoving = false;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  if (!isMoving) {
+    gsap.to(image, {
+      x: mouseX,
+      y: mouseY,
+      duration: 0.3,
+      ease: 'power3.out',
+      onComplete: () => {
+        isMoving = false;
+        gsap.to(image, { rotation: 0, duration: 0.3 });
+      }
+    });
+    isMoving = true;
+  } else {
+    gsap.to(image, {
+      x: mouseX,
+      y: mouseY,
+      duration: 0.3,
+      ease: 'power3.out'
+    });
+  }
+
+  const rotateAmount = (mouseX - window.innerWidth / 2) / (window.innerWidth / 2) * 45;
+  gsap.to(image, { rotation: rotateAmount, duration: 0.3 });
+});
+
+let timeout;
+document.addEventListener('mousemove', () => {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    gsap.to(image, { rotation: 0, duration: 0.3 });
+  }, 200);
+});
+
+document.addEventListener('mouseout', () => {
+  gsap.to(image, { scale: 0, duration: 0.5 });
+});
+
+  </script>
+</body>
+</html>

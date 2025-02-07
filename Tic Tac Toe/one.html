@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        
+    }
+    
+
+    span {
+        padding-top: 100px;
+        height: 80%;
+        width: 100%;
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        display: block;
+        display: grid;
+        grid-template-columns: 120px 120px 120px;
+        grid-template-rows: 120px 120px 120px;
+    }
+
+    div {
+        height: 100px;
+        width: 100px;
+        background-color: yellow;
+        border: 1px solid white;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: gilroy;
+    }h1{
+        color: wheat;
+        text-align: center;
+
+    }
+    h3{
+        color: wheat;
+        text-align: center;
+    }h4{
+        color: yellow;
+        text-align: center;
+    }
+    button{
+        
+        height: 30px;
+        width: 100px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: brown;
+    }
+    marquee{
+        color: white;
+        font-size: 2rem;
+    }
+</style>
+
+<body>
+
+    <h1>Tic Tac Toe</h1>
+    <h3>Current Status</h3>
+    <marquee  direction="left">Start The Game</marquee>
+<span>
+    
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</span>
+<button>Start</button>
+<button>Reset</button>
+<audio src="sound-1-167181.mp3"> </audio>
+<audio src="player-1-wins.mp3" ></audio>
+<audio src="player-2-wins.mp3"></audio>
+</body>
+<script>
+    let dom = document.getElementsByTagName("div");
+    let stat = document.getElementsByTagName("marquee")[0];
+    function start(){
+    let val = "x"
+    stat.textContent ="player 1 turn"
+        let playe = document.getElementsByTagName("audio")[0]
+        let playe1 = document.getElementsByTagName("audio")[1]
+        let playe2 = document.getElementsByTagName("audio")[2]
+        
+        for (let i = 0; i < dom.length; i++) {
+            dom[i].addEventListener("click", function () {
+                console.log(i)
+                dom[i].style.pointerEvents = "none";
+                dom[i].textContent = val
+                playe.play();
+                if (val == "O") {
+                    val = "x"
+                    playe.play();
+                    dom[i].style.backgroundColor ="skyblue"
+                    stat.direction ="right"
+                stat.textContent ="Player 1 Trun"
+            }
+            else {
+                dom[i].style.backgroundColor ="orange"
+                stat.textContent ="Player 2 Turn"
+                val = "O"
+            }
+            loude()
+        })
+        // console.log(dom[i])
+
+
+
+    }
+    function stopall(){
+        for(let i=0;i<dom.length;i++){
+            dom[i].style.pointerEvents= "none"
+        }
+    }
+    let winarr = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
+    function loude() {
+        for (let i = 0; i < 8; i++) {
+            let m = winarr[i][0]
+            let n = winarr[i][1]
+            let o = winarr[i][2]
+            let val1 = dom[m].innerHTML;
+            let val2 = dom[n].innerHTML;
+            let val3 = dom[o].innerHTML;
+            // console.log(m,n,o)
+            if (val1 !== "" && val2 !== "" && val3 !== "") {
+                if ((val1 === "x") && (val2 === "x") && (val3 === "x")) {
+                    // console.log(m, n, o)
+                    // console.log("X wins")
+                    stat.textContent ="Player 1 Wins"
+                    stat.direction ="right"
+                    stat.stop();
+                    playe1.play()
+                    stopall()
+
+                }
+                if ((val1 ==='O') && (val2 === 'O') && (val3 === 'O')) {
+                    // console.log(m, n, o)
+                    // console.log("o wins")
+                    stat.textContent="Player 2 Wins"
+                    stat.direction="right"
+                    playe2.play();
+                    stat.stop();
+                    
+                    stopall()
+                    
+                    
+
+                }
+            }
+        }
+        
+    }
+}
+let button1 =document.getElementsByTagName("button")[1];
+button1.addEventListener("click", function (){
+    stat.start()
+    for(let i=0;i<dom.length;i++){
+        dom[i].innerHTML ="";
+        dom[i].style.pointerEvents= "auto"
+        dom[i].style.backgroundColor ="yellow"
+    }
+    
+})
+let button = document.getElementsByTagName("button")[0];
+button.addEventListener("click",start);
+    
+</script>
+
+</html>
